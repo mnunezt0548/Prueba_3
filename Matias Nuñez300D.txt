@@ -1,0 +1,109 @@
+
+vehiculo = []
+import random
+
+def __init__(self, tipo, patente, marca, precio, multas, fecha_registro, nombre_dueño):
+        self.tipo = tipo
+        self.patente = patente
+        self.marca = marca
+        self.precio = precio
+        self.multas = multas
+        self.fecha_registro = fecha_registro
+        self.nombre_dueño = nombre_dueño
+
+
+def __str__(self):
+        return f'Tipo: {self.tipo}\nPatente: {self.patente}\nMarca: {self.marca}\nPrecio: {self.precio}\nMultas: {self.multas}\nFecha de registro: {self.fecha_registro}\nNombre dueño: {self.nombre_dueño}'
+
+def verificar_patente(patente):
+    return True
+
+def validar_marca(marca):
+    if len(marca) < 2 or len(marca) > 15:
+        return False
+    return True
+
+def emision_contaminantes(vehiculo):
+    emision = random.randint(1500, 3500)
+    print('           Certificados          ')
+    print(f'Nombre: Emision contaminante')
+    print(f'Patente: {vehiculo.patente}')
+    print(f'Dueño:{vehiculo.nombre_dueño}')
+    print(f'Precio: ${emision}')
+
+def anotaciones_vigentes(vehiculo):
+    anotaciones = random.randint(1500, 3500)
+    print('           Anotaciones          ')
+    print(f'Nombre: Anotaciones Vigentes')
+    print(f'Patente: {vehiculo.patente}')
+    print(f'Dueño:{vehiculo.nombre_dueño}')
+    print(f'Precio: ${anotaciones}')   
+
+def Multas(vehiculo):
+    Multas = random.randint(1500, 3500)
+    print('           Multas          ')
+    print(f'Nombre: Multas')
+    print(f'Patente: {vehiculo.patente}')
+    print(f'Dueño:{vehiculo.nombre_dueño}')
+    print(f'Precio: ${Multas}')       
+
+def ingresar_datos_vehiculo():
+    tipo = input('Ingrese el tipo de vehiculo: ')
+    patente = input('Ingrese la patente: ')
+    marca = input('Ingrese la marca del vehiculo: ')
+    precio =int(input('Ingrese el precio: '))
+    multas = []
+    fecha_registro = input('Ingrese el registro: ')
+    nombre_dueño = input('Ingrese el dueño del vehiculo: ')
+
+    if not verificar_patente(patente):
+        print('la patente no existe')
+        return None
+    
+    if not validar_marca(marca):
+        print('Execediste los caracteres')
+        return None
+
+    if precio <= 5000000:
+        print('El precio debe de ser mayor de $5.000.000')
+        return None
+
+    return vehiculo(tipo, patente, marca, precio, multas, fecha_registro, nombre_dueño)
+    
+vehiculos = []
+
+while True:
+    print('Bievenido a auto seguro' )
+    print('1) Ingresar el vehiculo')
+    print('2) Mostrar datos del vehiculo')
+    print('3) Certificados de emision de contaminantes y de multas')
+    print('4) Salir')
+
+    opcion = input('seleccione una opcion: ')
+
+    if opcion == '1':
+        vehiculo = ingresar_datos_vehiculo()
+        if vehiculo is not None:
+            vehiculo.append(vehiculo)
+            print('Datos de vehiculo ingresados exitosamente.')
+    elif opcion == '2':
+        if len(vehiculos) == 0:
+            print('No se han ingresado datos de vehiculos')
+        else:
+            for vehiculo in vehiculos:
+                print(vehiculo)
+
+    elif opcion == '3':
+        if len(vehiculos) == 0:
+            print('No se han ingresado datos de vehiculos')
+        else:
+            for vehiculo in vehiculos:
+                emision_contaminantes()
+                anotaciones_vigentes()
+                Multas()
+
+        
+    elif opcion == '4':
+        break    
+    else:
+        print('Opcion no valida, vuelva intentarlo')
